@@ -23,9 +23,10 @@ public class Main {
     public static void main(String[] args) {
 
 //      Create an array for tasklist
-//        System.out.println("There are 5 tasks in the tasklist");
+        System.out.println("There are 5 tasks in the tasklist");
         Tasks[] tasklist = new Tasks[5];
-
+        System.out.println("");
+        System.out.println("Info of tasklist is:");
 //      Create an array for queue
         Tasks[] queue = new Tasks[5];
         int queuefill = -1;
@@ -37,28 +38,25 @@ public class Main {
         }
 
 //      fill in values of burst time, arrival time, deadline time and membership type
-        //    System.out.println("*******Burst time data*******");
         tasklist[0].burst_time = 5;
         tasklist[1].burst_time = 2;
         tasklist[2].burst_time = 6;
         tasklist[3].burst_time = 7;
         tasklist[4].burst_time = 4;
 
-        //    System.out.println("*******Arrival time data*******");
         tasklist[0].arrival_time = 1;
         tasklist[1].arrival_time = 2;
         tasklist[2].arrival_time = 3;
         tasklist[3].arrival_time = 4;
         tasklist[4].arrival_time = 6;
-
-        //    System.out.println("*******Deadline time data*******");
+        
         tasklist[0].deadline = 8;
         tasklist[1].deadline = 10;
         tasklist[2].deadline = 10;
         tasklist[3].deadline = 15;
         tasklist[4].deadline = 20;
 
-        //  System.out.println("*******Membership type data*******");
+        
         tasklist[0].membership_type = 0.5f;
         tasklist[1].membership_type = 1.0f;
         tasklist[2].membership_type = 0.0f;
@@ -66,9 +64,17 @@ public class Main {
         tasklist[4].membership_type = 0.5f;
 
         Tasks obj = new Tasks();
-//        System.out.println("Tasks		Membership Type		Arrival time		Waiting time		Burst time		Task weight		Deadline at T=?		Deadline Closeness");
+    System.out.println("Membership Type\t\tArrival time\t\tBurst time\t\tDeadline at T=?");
+        for (int i = 0; i < 5; i++) {
+            System.out.println(tasklist[i].membership_type+"\t\t\t\t"+tasklist[i].arrival_time+"\t\t\t"+tasklist[i].burst_time+"\t\t\t"+tasklist[i].deadline);
+        }
+    System.out.println("");
+        System.out.println("timer starts");
+        System.out.println("");
 //      Timer starts:        
-        for (;; ++time) {
+        for (;time<=24; ++time) {
+            
+            System.out.println("At time T="+time);
 //        if arrival time of tasks in tasklist is equal to time then task is inserted to the queue
             for (int k = 0; k < 5; k++) {
                 if (tasklist[k].arrival_time == time) {
@@ -124,7 +130,7 @@ public class Main {
             }
             //   System.out.println("Time t =" + time);
             for (int t = 0; t < 5; t++) {
-                // System.out.println(tasklist[t].membership_type + "		" + tasklist[t].arrival_time + "		" + tasklist[t].waiting_time + "		" + tasklist[t].burst_time + "		" + tasklist[t].task_weight + "		" + tasklist[t].deadline_closeness);
+                System.out.println(tasklist[t].membership_type + "		" + tasklist[t].arrival_time + "		" + tasklist[t].waiting_time + "		" + tasklist[t].burst_time);
             }
 
         }
